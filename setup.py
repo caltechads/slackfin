@@ -1,10 +1,11 @@
-from setuptools import setup
 import os
+from setuptools import setup
 
-VERSION = "0.1"
+VERSION = "0.1.0"
 
 
 def get_long_description():
+    """Get the long description from the README file."""
     with open(
         os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md"),
         encoding="utf8",
@@ -18,13 +19,13 @@ setup(
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     author="Glenn W. Bach",
-    url="https://github.com/glennbach/slackfin",
+    url="https://github.com/caltechads/slackfin",
     project_urls={
-        "Issues": "https://github.com/glennbach/slackfin/issues",
-        "CI": "https://github.com/glennbach/slackfin/actions",
-        "Changelog": "https://github.com/glennbach/slackfin/releases",
+        "Issues": "https://github.com/caltechads/slackfin/issues",
+        "CI": "https://github.com/caltechads/slackfin/actions",
+        "Changelog": "https://github.com/caltechads/slackfin/releases",
     },
-    license="Apache License, Version 2.0",
+    license="MIT License",
     version=VERSION,
     packages=["slackfin"],
     install_requires=[],

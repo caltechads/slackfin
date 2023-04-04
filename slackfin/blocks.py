@@ -3,6 +3,7 @@ from .types import (
     SlackImageType,
     SlackMarkdownType,
 )
+from .formatter import SlackFormatter
 
 
 class SlackMessageBlock:
@@ -121,11 +122,11 @@ class SlackLabelValuePair:
     def render(self) -> str:
         """Render the label/value pair to Markdown."""
         if self.label_url:
-            label = f"<{self.label_url}|{self.label}>"
+            label = SlackFormatter().link(self.label_url, self.label)
         else:
             label = self.label
         if self.value_url:
-            value = f"<{self.value_url}|{self.value}>"
+            value = SlackFormatter().link(self.value_url, self.value)
         else:
             value = self.value
         return f"*{label}*: {value}"
