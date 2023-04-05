@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Slack Blocks &#8212; Slackfin 0.2.1 documentation</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Slack Types" href="types.html" />
+    <link rel="prev" title="Slack Message" href="message.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
+
+    
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Slackfin 0.2.1 documentation</p>
+  
+</a>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="api.html">
+  API
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/caltechads/slackfin" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
+          
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="message.html">
+   Slack Message
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Slack Blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html">
+   Slack Types
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="formatter.html">
+   Slack Formatter
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slackfin.blocks.SlackLabelValueListBlock">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     SlackLabelValueListBlock
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackLabelValueListBlock.add_entry">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackLabelValueListBlock.add_entry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackLabelValueListBlock.render">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackLabelValueListBlock.render
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slackfin.blocks.SlackLabelValuePair">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     SlackLabelValuePair
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackLabelValuePair.render">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackLabelValuePair.render
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageBlock">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     SlackMessageBlock
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageBlock.render">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackMessageBlock.render
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageContext">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     SlackMessageContext
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageContext.add_element">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackMessageContext.add_element
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageContext.render">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackMessageContext.render
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageDivider">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     SlackMessageDivider
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageDivider.render">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackMessageDivider.render
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageHeader">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     SlackMessageHeader
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageHeader.render">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackMessageHeader.render
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageMarkdown">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     SlackMessageMarkdown
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageMarkdown.render">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackMessageMarkdown.render
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageValueBlock">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     SlackMessageValueBlock
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slackfin.blocks.SlackMessageValueBlock.render">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SlackMessageValueBlock.render
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
+
+          
+          
+          <div class="bd-content col-12 col-md-9 col-xl-7">
+              
+              <article class="bd-article" role="main">
+                
+  <section id="module-slackfin.blocks">
+<span id="slack-blocks"></span><h1>Slack Blocks<a class="headerlink" href="#module-slackfin.blocks" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackLabelValueListBlock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SlackLabelValueListBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#slackfin.blocks.SlackLabelValuePair" title="slackfin.blocks.SlackLabelValuePair"><span class="pre">SlackLabelValuePair</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackLabelValueListBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackLabelValueListBlock" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#slackfin.blocks.SlackMessageMarkdown" title="slackfin.blocks.SlackMessageMarkdown"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlackMessageMarkdown</span></code></a></p>
+<p>A Slack message label/value list block</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*entries</strong> – any SlackLabelValuePair entries</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackLabelValueListBlock.add_entry">
+<span class="sig-name descname"><span class="pre">add_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#slackfin.blocks.SlackLabelValuePair" title="slackfin.blocks.SlackLabelValuePair"><span class="pre">SlackLabelValuePair</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackLabelValueListBlock.add_entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackLabelValueListBlock.add_entry" title="Permalink to this definition">#</a></dt>
+<dd><p>Add an entry to the list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackLabelValueListBlock.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackLabelValueListBlock.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackLabelValueListBlock.render" title="Permalink to this definition">#</a></dt>
+<dd><p>Render the block to JSON.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackLabelValuePair">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SlackLabelValuePair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackLabelValuePair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackLabelValuePair" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A label/value pair</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> – the label</p></li>
+<li><p><strong>value</strong> – the value</p></li>
+<li><p><strong>label_url</strong> – the label URL</p></li>
+<li><p><strong>value_url</strong> – the value URL</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackLabelValuePair.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackLabelValuePair.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackLabelValuePair.render" title="Permalink to this definition">#</a></dt>
+<dd><p>Render the label/value pair to Markdown.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageBlock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SlackMessageBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">blocks</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageBlock" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A Slack message block</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*blocks</strong> – any child blocks</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageBlock.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageBlock.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageBlock.render" title="Permalink to this definition">#</a></dt>
+<dd><p>Render the block to JSON.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SlackMessageContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">elements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#slackfin.types.SlackElementType" title="slackfin.types.SlackElementType"><span class="pre">SlackElementType</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageContext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageContext" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#slackfin.blocks.SlackMessageBlock" title="slackfin.blocks.SlackMessageBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlackMessageBlock</span></code></a></p>
+<p>A Slack message context</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*elements</strong> – any SlackElementType elements</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageContext.add_element">
+<span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#slackfin.types.SlackElementType" title="slackfin.types.SlackElementType"><span class="pre">SlackElementType</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageContext.add_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageContext.add_element" title="Permalink to this definition">#</a></dt>
+<dd><p>Add an element to the context.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageContext.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageContext.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageContext.render" title="Permalink to this definition">#</a></dt>
+<dd><p>Render the context to JSON.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageDivider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SlackMessageDivider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">blocks</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageDivider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageDivider" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#slackfin.blocks.SlackMessageBlock" title="slackfin.blocks.SlackMessageBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlackMessageBlock</span></code></a></p>
+<p>A Slack message divider</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageDivider.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageDivider.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageDivider.render" title="Permalink to this definition">#</a></dt>
+<dd><p>Render the divider to JSON.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageHeader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SlackMessageHeader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emoji</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageHeader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageHeader" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#slackfin.blocks.SlackMessageBlock" title="slackfin.blocks.SlackMessageBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlackMessageBlock</span></code></a></p>
+<p>A Slack message header</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – the header text</p></li>
+<li><p><strong>emoji</strong> – whether to allow emojis</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageHeader.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageHeader.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageHeader.render" title="Permalink to this definition">#</a></dt>
+<dd><p>Render the header to JSON.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageMarkdown">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SlackMessageMarkdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alt_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageMarkdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageMarkdown" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#slackfin.blocks.SlackMessageBlock" title="slackfin.blocks.SlackMessageBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlackMessageBlock</span></code></a></p>
+<p>A Slack message markdown</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – the markdown text</p></li>
+<li><p><strong>image_url</strong> – the image URL</p></li>
+<li><p><strong>alt_text</strong> – the alternative text</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageMarkdown.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageMarkdown.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageMarkdown.render" title="Permalink to this definition">#</a></dt>
+<dd><p>Render the markdown to JSON.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageValueBlock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SlackMessageValueBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secondary_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secondary_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageValueBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageValueBlock" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#slackfin.blocks.SlackMessageBlock" title="slackfin.blocks.SlackMessageBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlackMessageBlock</span></code></a></p>
+<p>A Slack message value block</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> – the label</p></li>
+<li><p><strong>value</strong> – the value</p></li>
+<li><p><strong>secondary_label</strong> – the secondary label</p></li>
+<li><p><strong>secondary_value</strong> – the secondary value</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="slackfin.blocks.SlackMessageValueBlock.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/slackfin/blocks.html#SlackMessageValueBlock.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#slackfin.blocks.SlackMessageValueBlock.render" title="Permalink to this definition">#</a></dt>
+<dd><p>Render the block to JSON.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+              </article>
+              
+
+              
+          </div>
+          
+      </div>
+    </div>
+
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright 2023, California Institute of Technology.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.3.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
+  </body>
+</html>
