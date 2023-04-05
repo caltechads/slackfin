@@ -1,8 +1,8 @@
 # slackfin
 
 [![PyPI](https://img.shields.io/pypi/v/slackfin.svg)](https://pypi.org/project/slackfin/)
-[![Changelog](https://img.shields.io/github/v/release/glennbach/slackfin?include_prereleases&label=changelog)](https://github.com/glennbach/slackfin/releases)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/glennbach/slackfin/blob/main/LICENSE)
+[![Changelog](https://img.shields.io/github/v/caltechads/glennbach/slackfin?include_prereleases&label=changelog)](https://github.com/caltechads/slackfin/releases)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/caltechads/slackfin/blob/main/LICENSE)
 
 Python library for generating Slack messages
 

@@ -29,6 +29,7 @@ class SlackMessage:
         self.token = token if token else os.environ.get('SLACK_API_TOKEN')
         self.text = text
         self.blocks = blocks if blocks else []
+        self.rendered_blocks = None
 
     def send(self, channel: str = "") -> dict:
         """
@@ -39,11 +40,12 @@ class SlackMessage:
         """
         ssl_context = ssl.create_default_context(cafile=certifi.where())
         client = WebClient(token=self.token, ssl=ssl_context)
-        rendered_blocks = self.render()
+        if not self.rendered_blocks:
+            self.rendered_blocks = self.render()
         response = client.chat_postMessage(
             channel=channel,
             text=self.text,
-            blocks=rendered_blocks
+            blocks=self.rendered_blocks
         )
         return response
 
