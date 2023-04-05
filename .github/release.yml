@@ -1,0 +1,10 @@
+# .github/release.yml
+
+changelog:
+  exclude:
+    labels:
+      - Bump version
+  categories:
+    - title: Changes
+      labels:
+        - "*"
