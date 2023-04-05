@@ -11,6 +11,7 @@ Python library for generating Slack messages
 View the documentation:
 
     [On Readthedocs](https://slackfin.readthedocs.io/en/latest/)
+    [Altair charts](https://github.com/altair-viz/altair)
 
 ## Usage
 
