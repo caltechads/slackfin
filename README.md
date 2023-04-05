@@ -8,26 +8,9 @@ Python library for generating Slack messages
 
 ## Installation
 
-View the documentation:
+Install with pip:
 
-    [https://slackfin.readthedocs.io/en/latest/](https://slackfin.readthedocs.io/en/latest/)
+    pip install slackfin
 
-## Usage
+View the [documentation](https://slackfin.readthedocs.io/en/latest/).
 
-Usage instructions go here.
-
-## Development
-
-To contribute to this library, first checkout the code. Then create a new virtual environment:
-
-    cd slackfin
-    python -m venv venv
-    source venv/bin/activate
-
-Now install the dependencies and test dependencies:
-
-    pip install -e '.[test]'
-
-To run the tests:
-
-    pytest
