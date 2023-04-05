@@ -10,7 +10,7 @@ Python library for generating Slack messages
 
 View the documentation:
 
-    [https://slackfin.readthedocs.io/en/latest/](https://slackfin.readthedocs.io/en/latest/)
+    [On Readthedocs](https://slackfin.readthedocs.io/en/latest/)
 
 ## Usage
 
