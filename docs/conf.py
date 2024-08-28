@@ -11,7 +11,7 @@ copyright = '2023, California Institute of Technology'   # pylint: disable=redef
 author = 'Glenn Bach, Chris Malek'
 
 # The full version, including alpha/beta/rc tags
-release = '0.2.1'
+release = '0.2.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
