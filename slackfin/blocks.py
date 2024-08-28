@@ -79,6 +79,7 @@ class SlackMessageMarkdown(SlackMessageBlock):
     ):
         super().__init__(*args, **kwargs)
         self.text = text
+        self.image = None
         if image_url:
             self.image = SlackImageType(image_url, alt_text)
 

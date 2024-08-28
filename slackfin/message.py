@@ -28,7 +28,7 @@ class SlackMessage:
     ):
         self.token = token if token else os.environ.get('SLACK_API_TOKEN')
         self.text = text
-        self.blocks = blocks if blocks else []
+        self.blocks = list(blocks) if blocks else []
         self.rendered_blocks = None
 
     def send(self, channel: str = "") -> dict:
